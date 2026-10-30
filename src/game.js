@@ -14,7 +14,6 @@ const TXT = {
     main: 'MAIN QUEST', side: 'SIDE QUEST', play: 'PLAY', slot: 'SLOT', kinds: { work: 'WORK', study: 'STUDY' },
     hint: 'Pick a skill to see where I used it.', summon: 'SUMMON', cv: 'Download CV',
     quit: 'Quit game', sound: 'Sound', on: 'on', off: 'off', help: 'Left / right: change tab. Esc: quit.',
-    term: { tag: 'this is a joke. Esc to close', lines: ['$ sudo rm -rf /', '[sudo] password for visitor: ********', 'removing /usr/bin ... done', 'removing /home/ciro/projects ... done', 'removing /var/www/portfolio ... done', 'removing /etc/everything ...', "rm: cannot remove '/': Permission denied", '', 'Nice try. Just kidding, nothing was deleted.', 'I study cyberdefense, I would never do that.'] },
   },
   es: {
     nick: 'CIRO', cls: 'Clase', lv: 'NV', hp: 'HP', xp: 'XP', lives: 'VIDAS', ach: 'Logros',
@@ -24,28 +23,8 @@ const TXT = {
     main: 'MISIÓN PRINCIPAL', side: 'MISIÓN SECUNDARIA', play: 'JUGAR', slot: 'PARTIDA', kinds: { work: 'TRABAJO', study: 'ESTUDIO' },
     hint: 'Elegí una habilidad para ver dónde la usé.', summon: 'INVOCAR', cv: 'Descargar CV',
     quit: 'Abandonar partida', sound: 'Sonido', on: 'sí', off: 'no', help: 'Izquierda / derecha: cambiar de pestaña. Esc: abandonar.',
-    term: { tag: 'es una broma. Esc para cerrar', lines: ['$ sudo rm -rf /', '[sudo] contraseña para visitante: ********', 'borrando /usr/bin ... listo', 'borrando /home/ciro/proyectos ... listo', 'borrando /var/www/portfolio ... listo', 'borrando /etc/todo ...', "rm: no se puede borrar '/': Permiso denegado", '', 'Buen intento. Es broma, no se borró nada.', 'Estudio ciberdefensa, jamás haría eso.'] },
   },
 };
-
-/* ---------- Fake terminal (in-page, clearly a joke) ---------- */
-export function runTerminal(ctx) {
-  const L = TXT[ctx.lang()].term;
-  const el = document.createElement('div');
-  el.className = 'term';
-  el.innerHTML = `<div class="term__bar">visitor@portfolio: ~ <span>${L.tag}</span></div><pre></pre>`;
-  document.body.appendChild(el);
-  const pre = $('pre', el);
-  let i = 0, timer, to;
-  const close = () => { clearInterval(timer); clearTimeout(to); el.remove(); removeEventListener('keydown', esc); };
-  const esc = (e) => e.key === 'Escape' && close();
-  addEventListener('keydown', esc);
-  el.addEventListener('click', close);
-  timer = setInterval(() => {
-    if (i < L.lines.length) pre.textContent += L.lines[i++] + '\n';
-    else { clearInterval(timer); to = setTimeout(close, 4500); }
-  }, 520);
-}
 
 /* ---------- Helpers ---------- */
 function loadFonts() {

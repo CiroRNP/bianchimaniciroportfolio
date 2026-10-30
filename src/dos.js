@@ -1,6 +1,6 @@
 import './dos.css';
 
-// "sudo terminal": a retro DOS shell that launches PORTAFOLIO.EXE. Loaded only when triggered.
+// "sudo open terminal": a retro DOS shell that launches PORTAFOLIO.EXE. Loaded only when triggered.
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);

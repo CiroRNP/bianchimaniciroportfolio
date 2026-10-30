@@ -221,7 +221,7 @@ const palette = initPalette({
     { group: t('cmd.actions'), icon: 'ri-download-line', label: t('hero.cv'), run: () => $('#cv').click() },
     { group: t('cmd.actions'), icon: 'ri-mail-line', label: t('cmd.mail'), run: () => (location.href = `mailto:${SITE.email}`) },
     { secret: 'sudo', group: 'root', icon: 'ri-terminal-line', label: 'sudo hire ciro', run: () => { toast(t('egg.sudo')); party(); go('#contact')(); } },
-    { secret: 'sudo', group: 'root', icon: 'ri-terminal-line', label: 'sudo rm -rf /', run: () => import('./game.js').then((g) => g.runTerminal({ lang: () => lang })) },
+    { secret: 'sudo', group: 'root', icon: 'ri-terminal-line', label: 'sudo open terminal', run: () => import('./dos.js').then((d) => d.runDos({ t, lang: () => lang, SITE, PROJECTS, STACK, EXP, cvFor, pause: () => lenis?.stop(), resume: () => lenis?.start() })) },
     { secret: 'konami', group: 'root', icon: 'ri-gamepad-line', label: 'konami mode', run: startGame },
     { group: t('cmd.actions'), icon: 'ri-whatsapp-line', label: t('contact.whatsapp'), run: () => window.open($('#wa').href, '_blank', 'noopener') },
     ...PROJECTS.map((p) => ({ group: t('cmd.projects'), icon: 'ri-external-link-line', label: t(`projects.${p.id}.title`), run: () => window.open(p.url, '_blank', 'noopener') })),
