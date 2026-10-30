@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ciro Bianchimani</title>
+  <meta name="description" content="Functional Analyst & Lead / Senior Full Stack Developer. Buenos Aires, Argentina.">
+  <meta name="theme-color" content="#0a1022">
+  <meta property="og:title" content="Ciro Bianchimani">
+  <meta property="og:description" content="Functional Analyst & Lead / Senior Full Stack Developer. Buenos Aires, Argentina.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+  <header class="top">
+    <a class="top__brand" href="#hero" aria-label="Ciro Bianchimani">CB</a>
+    <nav class="top__nav">
+      <a href="#work" data-i18n="nav.work"></a>
+      <a href="#path" data-i18n="nav.path"></a>
+      <a href="#stack" data-i18n="nav.stack"></a>
+      <a href="#contact" data-i18n="nav.contact"></a>
+    </nav>
+    <div class="dock">
+      <div class="dock__lang" role="group" aria-label="Language">
+        <button data-lang="en">EN</button><button data-lang="es">ES</button>
+      </div>
+      <button class="dock__pal" id="pal-open" aria-label="Command palette"><i class="ri-search-line"></i><kbd></kbd></button>
+      <button class="dock__theme" id="theme" aria-label="Theme"><i class="ri-moon-line"></i></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <canvas id="hero-canvas" aria-hidden="true"></canvas>
+      <div class="wrap hero__grid">
+        <figure class="hero__photo"><span class="hero__ring"></span><img id="avatar" src="/photo-placeholder.svg" alt="Ciro Bianchimani" width="400" height="400"></figure>
+        <div>
+          <p class="hero__loc" data-i18n="hero.loc"></p>
+          <h1 class="hero__name"><span>Ciro</span><span>Bianchimani</span></h1>
+          <p class="hero__role" id="role" aria-live="polite"></p>
+          <p class="hero__intro" data-i18n="hero.intro"></p>
+          <div class="hero__btns">
+            <a class="btn btn--main" href="#work" data-i18n="hero.work"></a>
+            <a class="btn" id="cv" download><i class="ri-download-line"></i><span data-i18n="hero.cv"></span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="work" id="work">
+      <p class="work__ghost" aria-hidden="true" data-i18n="work.ghost"></p>
+      <div class="work__head wrap">
+        <h2 data-i18n="work.title"></h2>
+        <p data-i18n="work.hint"></p>
+      </div>
+      <div class="work__track" id="track"></div>
+      <div class="work__foot"><span id="count"></span><div class="work__bar"><i id="bar"></i></div></div>
+    </section>
+
+    <section class="path wrap" id="path">
+      <h2 data-i18n="path.title"></h2>
+      <p class="path__sub" data-i18n="path.sub"></p>
+      <div class="filters" role="group">
+        <button data-f="all" aria-pressed="true" data-i18n="path.all"></button>
+        <button data-f="work" aria-pressed="false" data-i18n="path.work"></button>
+        <button data-f="study" aria-pressed="false" data-i18n="path.study"></button>
+      </div>
+      <div class="tl">
+        <div class="tl__line"><i class="tl__fill"></i></div>
+        <ol class="tl__list" id="tl"></ol>
+      </div>
+    </section>
+
+    <section class="stack wrap" id="stack">
+      <h2 data-i18n="stack.title"></h2>
+      <p class="stack__hint" data-i18n="stack.hint"></p>
+      <div class="marquee" id="marquee"></div>
+      <div class="pick" id="pick" aria-live="polite"></div>
+    </section>
+
+    <section class="contact wrap" id="contact">
+      <h2 data-i18n="contact.title"></h2>
+      <p data-i18n="contact.text"></p>
+      <a class="contact__mail" id="mail"></a>
+      <div class="hero__btns">
+        <a class="btn btn--main" id="wa" target="_blank" rel="noopener"><i class="ri-whatsapp-line"></i><span data-i18n="contact.whatsapp"></span></a>
+        <span class="social" id="social"></span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot wrap"><span data-i18n="footer"></span></footer>
+  <div class="pal" id="pal" hidden role="dialog" aria-modal="true" aria-label="Command palette">
+    <div class="pal__box">
+      <input id="pal-q" type="text" autocomplete="off" spellcheck="false" data-i18n-ph="cmd.placeholder" aria-label="Command">
+      <ul id="pal-list" role="listbox"></ul>
+      <p class="pal__hint" data-i18n="cmd.hint"></p>
+    </div>
+  </div>
+  <div class="cursor" id="cursor" aria-hidden="true"><span></span></div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

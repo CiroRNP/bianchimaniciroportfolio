@@ -1,0 +1,185 @@
+{
+  "nav": {
+    "work": "Work",
+    "path": "Path",
+    "stack": "Stack",
+    "contact": "Contact"
+  },
+  "hero": {
+    "loc": "Buenos Aires, Argentina. Available for freelance.",
+    "roles": [
+      "Functional Analyst & Lead",
+      "Senior Full Stack Developer"
+    ],
+    "intro": "I build mission-critical systems at national scale and SaaS products. I turn legal and bureaucratic requirements into software that people use every day.",
+    "work": "See my work",
+    "cv": "Download CV"
+  },
+  "work": {
+    "title": "Selected work",
+    "hint": "Scroll to move through the projects. Click a card to open the live demo.",
+    "demo": "Open demo",
+    "user": "User",
+    "pass": "Password",
+    "copy": "Copy",
+    "copied": "Copied",
+    "ghost": "Work"
+  },
+  "projects": {
+    "profes": {
+      "title": "Personal Trainers Tool",
+      "desc": "A web tool for personal trainers to run their work."
+    },
+    "tasks": {
+      "title": "Kanban Sprint Task Manager",
+      "desc": "Team task management with sprints and a kanban board."
+    },
+    "pixel": {
+      "title": "Pixel Art Task Manager",
+      "desc": "Your to-do list as a pixel-art game: missions, levels, XP and biomes."
+    },
+    "attendance": {
+      "title": "In-office Attendance Manager",
+      "desc": "Attendance control for in-office teams, with an admin panel."
+    },
+    "notes": {
+      "title": "Note-taking app with recording",
+      "desc": "Take notes and record audio. Installable as a PWA."
+    },
+    "pdf": {
+      "title": "PDF Fuuusion",
+      "desc": "A PDF tool built with Vite.js and optimized local storage."
+    },
+    "radio": {
+      "title": "RadioLD",
+      "desc": "Ad-free radio PWA for Argentine stations. Simple for older adults, light for low-end phones."
+    },
+    "resto": {
+      "title": "Demo Landing Resto",
+      "desc": "Demo landing page for a restaurant."
+    },
+    "truco": {
+      "title": "Simple Truco score counter",
+      "desc": "A simple score counter for the card game Truco, installable as a PWA."
+    }
+  },
+  "path": {
+    "title": "Path",
+    "sub": "Work and studies, newest first.",
+    "all": "All",
+    "work": "Work",
+    "study": "Studies"
+  },
+  "timeline": [
+    {
+      "kind": "study",
+      "period": "Nov 2025 – Present",
+      "title": "Bachelor's in Cyberdefense",
+      "org": "FADENA, UnDef",
+      "points": [
+        "Studying cyberdefense alongside full-time development work."
+      ]
+    },
+    {
+      "kind": "work",
+      "period": "Jan 2023 – Present",
+      "title": "Functional Analyst & Lead Full Stack Developer",
+      "org": "RENAPER",
+      "points": [
+        "SIGDI: national document management and technology inventory system. Tracks stock, movements, purchases and the full life cycle of assets (PHP, Laravel, PostgreSQL, JavaScript, Tailwind CSS, Docker).",
+        "Institutional LMS and wiki with videos, self-assessments and tutorials, so staff can train themselves and find answers fast.",
+        "Operations and national logistics platform: planning, technician assignment, travel and per diem requests, and financial viability control for missions in every province.",
+        "Digitization and integration of institutional records, with a two-way connection to the asset management platform.",
+        "Dedicated servers for development and staging, and deployments on centralized state infrastructure for national use."
+      ]
+    },
+    {
+      "kind": "work",
+      "period": "Nov 2021 – Present",
+      "title": "Full Stack Developer",
+      "org": "Web, SaaS & personal projects",
+      "points": [
+        "Cognit: SaaS in production with active monetization. Appointments, patient follow-up, clinical history, reminders and payment control for psychologists, cutting debts and cancellations (React/Vite, Tailwind CSS, Firestore, Vercel).",
+        "Radio LD: lightweight audio streaming PWA for low-end phones. Argentine stations with no ads and a simple interface for older adults (JavaScript, Firebase Firestore, Netlify)."
+      ]
+    },
+    {
+      "kind": "study",
+      "period": "Apr 2023 – Oct 2023",
+      "title": "Full Stack Developer with Java and Spring Boot",
+      "org": "Alura Latam, Oracle Next Education",
+      "points": [
+        "Business Agility G5 ONE, 40 h.",
+        "Entrepreneurship ONE: Business Model Canvas, 20 h.",
+        "Personal Development, 20 h."
+      ]
+    },
+    {
+      "kind": "study",
+      "period": "Oct 2022 – Feb 2023",
+      "title": "Front-end programming and OOP",
+      "org": "Argentina Programa 2.0",
+      "points": []
+    },
+    {
+      "kind": "study",
+      "period": "Courses and certificates",
+      "title": "Additional training",
+      "org": "Ticmas, Platzi, Google Activate, EF, CUI",
+      "points": [
+        "Kotlin and Android Studio, mobile app development (Ticmas).",
+        "Full stack JavaScript (Platzi).",
+        "Business Digitalization with Google Tools (Google Activate).",
+        "English C1 Advanced: EF European Certificate (Reading & Listening).",
+        "CEFR certificate (CUI)."
+      ]
+    },
+    {
+      "kind": "work",
+      "period": "Mar 2012 – Dec 2022",
+      "title": "Process Automation Specialist & IT Support",
+      "org": "RENAPER",
+      "points": [
+        "Automated spreadsheets with Google Apps Script and Excel for the call center, faster data entry and more precise KPI analysis.",
+        "Hardware maintenance and operating system diagnosis on the corporate network."
+      ]
+    },
+    {
+      "kind": "study",
+      "period": "1999 – 2004",
+      "title": "Master Builder (Maestro Mayor de Obras)",
+      "org": "Escuela Técnica Manuel Belgrano",
+      "points": []
+    }
+  ],
+  "stack": {
+    "title": "Stack",
+    "lang": "Languages & frameworks",
+    "front": "Frontend & UI",
+    "data": "Data & cloud",
+    "tools": "Tools & methods",
+    "hint": "Pick a technology and I'll show you where I used it.",
+    "with": "Built with {x}",
+    "none": "No public demo with {x} yet, but I use it. Ask me about it.",
+    "also": "Also used in:"
+  },
+  "contact": {
+    "title": "Let's talk",
+    "text": "Have a system to build or a process to untangle? Write to me.",
+    "whatsapp": "Message on WhatsApp",
+    "wa_msg": "Hi Ciro, I saw your portfolio and I'd like to talk."
+  },
+  "footer": "© 2026 Ciro Bianchimani",
+  "cmd": {
+    "placeholder": "Type a command or a project name",
+    "empty": "Nothing found.",
+    "hint": "Up and down to move, Enter to run, Esc to close",
+    "nav": "Go to",
+    "actions": "Actions",
+    "projects": "Open demo",
+    "to_lang": "Cambiar a español",
+    "theme": "Switch light / dark theme",
+    "mail": "Send email",
+    "open": "Command palette"
+  }
+}

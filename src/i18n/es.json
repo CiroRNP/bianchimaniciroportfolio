@@ -1,0 +1,187 @@
+{
+  "nav": {
+    "work": "Proyectos",
+    "path": "Trayectoria",
+    "stack": "Stack",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "loc": "Buenos Aires, Argentina.",
+    "roles": [
+      "Analista Funcional & Lead",
+      "Senior Developer"
+    ],
+    "intro": "Construyo sistemas de misión crítica a escala nacional y productos SaaS. Transformo requerimientos legales y burocráticos en software que se usa todos los días.",
+    "work": "Ver proyectos",
+    "cv": "Descargar CV"
+  },
+  "work": {
+    "title": "Proyectos ",
+    "hint": "Vas a ver demo de algunos proyectos. Click en una tarjeta para abrirla.",
+    "demo": "Abrir demo",
+    "user": "Usuario",
+    "pass": "Contraseña",
+    "copy": "Copiar",
+    "copied": "Copiado",
+    "ghost": "Proyectos"
+  },
+  "projects": {
+    "profes": {
+      "title": "Herramienta para Personal Trainers",
+      "desc": "Una herramienta web para que los entrenadores personales gestionen su trabajo."
+    },
+    "tasks": {
+      "title": "Gestor de tareas Kanban con Sprints",
+      "desc": "Gestión de tareas en equipo con sprints y tablero kanban."
+    },
+    "pixel": {
+      "title": "Gestor de tareas Pixel Art",
+      "desc": "Tu lista de tareas como un juego pixel art: misiones, niveles, XP y biomas."
+    },
+    "attendance": {
+      "title": "Gestor de asistencias presenciales",
+      "desc": "Control de asistencia para equipos presenciales, con panel de administración."
+    },
+    "notes": {
+      "title": "App de notas con grabación",
+      "desc": "Tomá notas y grabá audio. Instalable como PWA."
+    },
+    "pdf": {
+      "title": "PDF Fuuusion",
+      "desc": "Una herramienta de PDF hecha con Vite.js y almacenamiento local optimizado."
+    },
+    "radio": {
+      "title": "RadioLD",
+      "desc": "PWA de radio sin publicidad para emisoras argentinas. Simple para adultos mayores y liviana para celulares de gama baja."
+    },
+    "resto": {
+      "title": "Landing demo para restaurante",
+      "desc": "Landing page de demostración para un restaurante."
+    },
+    "truco": {
+      "title": "Contador de puntos de Truco",
+      "desc": "Un contador de puntos simple para el truco, instalable como PWA."
+    }
+  },
+  "path": {
+    "title": "Trayectoria",
+    "sub": "Trabajo y estudios, de lo más nuevo a lo más viejo.",
+    "all": "Todo",
+    "work": "Trabajo",
+    "study": "Estudios"
+  },
+  "timeline": [
+    {
+      "kind": "study",
+      "period": "Nov 2025 – Presente",
+      "title": "Licenciatura en Ciberdefensa",
+      "org": "FADENA, UnDef",
+      "points": [
+        "Cursando ciberdefensa en paralelo al trabajo de desarrollo."
+      ]
+    },
+    {
+      "kind": "work",
+      "period": "Ene 2023 – Presente",
+      "title": "Analista Funcional & Lead Full Stack Developer",
+      "org": "RENAPER",
+      "points": [
+        "SIGDI: sistema nacional de gestión documental e inventario tecnológico. Controla stock, movimientos, compras y todo el ciclo de vida de los activos (PHP, Laravel, PostgreSQL, JavaScript, Tailwind CSS, Docker).",
+        "LMS y wiki institucional con videos, autoevaluaciones y tutoriales, para que el personal se capacite solo y encuentre respuestas rápido.",
+        "Plataforma de operativos y logística nacional: planificación, asignación de técnicos, pedido de pasajes y viáticos, y control de viabilidad financiera de comisiones en todas las provincias.",
+        "Digitalización e integración de actas institucionales, con conexión bidireccional a la plataforma de gestión patrimonial.",
+        "Servidores dedicados para desarrollo y staging, y despliegues en infraestructura estatal centralizada para consumo nacional."
+      ]
+    },
+    {
+      "kind": "work",
+      "period": "Nov 2021 – Presente",
+      "title": "Desarrollador Full Stack",
+      "org": "Web, SaaS y proyectos personales",
+      "points": [
+        "Cognit: SaaS en producción con monetización activa. Turnos, seguimiento de pacientes, historial clínico, recordatorios y control de pagos para psicólogos, reduciendo deudas y cancelaciones (React/Vite, Tailwind CSS, Firestore, Vercel).",
+        "Radio LD: PWA de streaming de audio ultraliviana para celulares de gama baja. Emisoras argentinas sin publicidad y con interfaz simple para la tercera edad (JavaScript, Firebase Firestore, Netlify).",
+        "Gestion de Profes: herramienta web para entrenadores personales, con gestión de clientes, rutinas, pagos y recordatorios (React/Vite, Tailwind CSS, Supabase, Netlify)."
+      ]
+    },
+    {
+      "kind": "study",
+      "period": "Abr 2023 – Oct 2023",
+      "title": "Full Stack Developer con Java y Spring Boot",
+      "org": "Alura Latam, Oracle Next Education",
+      "points": [
+        "Business Agility G5 ONE - 40 h.",
+        "Emprendimiento ONE: Business Model Kanban - 20 h.",
+        "Emprendimiento ONE: SCRUM  - 20 h.",
+        "Desarrollo Personal - 20 h."
+      ]
+    },
+    {
+      "kind": "study",
+      "period": "Oct 2022 – Feb 2023",
+      "title": "Programación Front-End y POO",
+      "org": "Argentina Programa 2.0",
+      "points": []
+    },
+    {
+      "kind": "study",
+      "period": "Cursos y certificados",
+      "title": "Formación adicional",
+      "org": "Ticmas, Platzi, Google Activate, EF, CUI",
+      "points": [
+        "Kotlin y Android Studio, desarrollo de aplicaciones móviles (Ticmas).",
+        "JavaScript Full Stack (Platzi).",
+        "Digitalización de empresas con herramientas de Google (Google Activate).",
+        "Inglés C1 Advanced: Certificado Europeo EF (Reading & Listening).",
+        "Certificado MCER (CUI)."
+      ]
+    },
+    {
+      "kind": "work",
+      "period": "Mar 2012 – Dic 2022",
+      "title": "Especialista en Automatización de Procesos & Soporte IT",
+      "org": "RENAPER",
+      "points": [
+        "Planillas automatizadas con Google Apps Script y Excel para el call center, con carga de datos más rápida y análisis de KPIs más preciso.",
+        "Mantenimiento de hardware y diagnóstico de sistemas operativos en la red corporativa."
+      ]
+    },
+    {
+      "kind": "study",
+      "period": "1999 – 2004",
+      "title": "Maestro Mayor de Obras",
+      "org": "Escuela Técnica Manuel Belgrano",
+      "points": []
+    }
+  ],
+  "stack": {
+    "title": "Stack",
+    "lang": "Lenguajes y frameworks",
+    "front": "Frontend y UI",
+    "data": "Datos y cloud",
+    "tools": "Herramientas y métodos",
+    "hint": "Elegí una tecnología y te muestro dónde la usé.",
+    "with": "Hecho con {x}",
+    "none": "No hay una demo pública con {x}, pero se usa internamiente. Preguntame.",
+    "also": "También la usé en:"
+  },
+  "contact": {
+    "title": "Hablemos",
+    "text": "¿Tenés un sistema para construir o un proceso para ordenar? Escribime.",
+    "whatsapp": "Escribir por WhatsApp",
+    "wa_msg": "Hola Ciro, vi tu portfolio y me gustaría hablar."
+  },
+  "footer": "© 2026 Ciro Bianchimani",
+  "cmd": {
+    "placeholder": "Escribí un comando o el nombre de un proyecto",
+    "empty": "No se encontró nada.",
+    "hint": "Arriba y abajo para moverte, Enter para ejecutar, Esc para cerrar",
+    "nav": "Ir a",
+    "actions": "Acciones",
+    "projects": "Abrir demo",
+    "to_lang": "Switch to English",
+    "theme": "Cambiar tema claro / oscuro",
+    "mail": "Enviar email",
+    "open": "Paleta de comandos"
+  }
+}
