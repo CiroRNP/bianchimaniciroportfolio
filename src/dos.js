@@ -11,7 +11,7 @@ const LOGO = [0, 1, 2, 3, 4].map((r) => [...'CIRO'].map((c) => LET[c][r]).join('
 
 const TXT = {
   en: {
-    boot: ['CIRO-DOS [Version 1.0]', '(C) 2026 Ciro Bianchimani. All rights reserved.'],
+    boot: ['CIRO-DOS [Version 1.0]', '(C) 1985 Ciro Bianchimani. All rights reserved.'],
     cmd: 'portfolio.exe', loading: 'Loading PORTFOLIO.EXE', skip: 'Enter: skip   Esc: exit',
     title: ' CIRO PORTFOLIO  v1.0 ', select: 'Select what you are looking for:',
     menu: ['PROJECTS', 'PATH', 'SKILLS', 'CONTACT', 'EXIT'],
@@ -19,7 +19,7 @@ const TXT = {
     tech: 'Tech:', user: 'User:', pass: 'Password:', kinds: { work: 'WORK', study: 'STUDIES' },
   },
   es: {
-    boot: ['CIRO-DOS [Versión 1.0]', '(C) 2026 Ciro Bianchimani. Todos los derechos reservados.'],
+    boot: ['CIRO-DOS [Versión 1.0]', '(C) 1985 Ciro Bianchimani. Todos los derechos reservados.'],
     cmd: 'portafolio.exe', loading: 'Cargando PORTAFOLIO.EXE', skip: 'Enter: saltar   Esc: salir',
     title: ' PORTAFOLIO DE CIRO  v1.0 ', select: 'Seleccione lo que busca:',
     menu: ['PROYECTOS', 'TRAYECTORIA', 'HABILIDADES', 'CONTACTO', 'SALIR'],
@@ -44,6 +44,23 @@ export function runDos(ctx) {
   const L = () => TXT[ctx.lang()];
   const st = { screen: 'boot', sel: 0, last: 0, items: [], fast: matchMedia('(prefers-reduced-motion: reduce)').matches };
   let alive = true;
+  let audio;
+
+  const tone = (frequency, duration = 0.06) => {
+    if (!window.AudioContext) return;
+    audio ||= new window.AudioContext();
+    if (audio.state === 'suspended') audio.resume();
+    const oscillator = audio.createOscillator(), gain = audio.createGain();
+    const start = audio.currentTime;
+    oscillator.type = 'square';
+    oscillator.frequency.setValueAtTime(frequency, start);
+    gain.gain.setValueAtTime(0.035, start);
+    gain.gain.exponentialRampToValueAtTime(0.001, start + duration);
+    oscillator.connect(gain);
+    gain.connect(audio.destination);
+    oscillator.start(start);
+    oscillator.stop(start + duration);
+  };
 
   const el = document.createElement('div');
   el.className = 'dos'; el.setAttribute('role', 'dialog'); el.setAttribute('aria-modal', 'true'); el.setAttribute('aria-label', 'CIRO-DOS');
@@ -53,12 +70,14 @@ export function runDos(ctx) {
   const app = $('.dos__app', el);
 
   const close = () => {
+    tone(330, 0.12);
     alive = false;
     removeEventListener('keydown', onKey, true);
     el.remove();
     document.documentElement.classList.remove('in-dos');
     ctx.resume();
     active = false;
+    setTimeout(() => audio?.close(), 160);
   };
 
   /* ----- content of each screen ----- */
@@ -95,7 +114,9 @@ export function runDos(ctx) {
 
   const setSel = (i) => {
     const menu = st.screen === 'menu', n = menu ? L().menu.length : st.items.length;
-    st.sel = Math.max(0, Math.min(n - 1, i));
+    const next = Math.max(0, Math.min(n - 1, i));
+    if (next !== st.sel) tone(620, 0.045);
+    st.sel = next;
     if (menu) {
       $$('.dos__menu li', app).forEach((li, k) => { li.classList.toggle('sel', k === st.sel); li.textContent = `[${k === st.sel ? 'X' : ' '}] ${li.dataset.n}`; });
       return;
@@ -110,7 +131,7 @@ export function runDos(ctx) {
   const drawMenu = (idx = 0) => {
     const T = L(), roles = ctx.t('hero.roles');
     st.screen = 'menu';
-    app.innerHTML = frame(T.title, `<div class="dos__pres"><pre class="dos__logo">${LOGO}</pre><h1>Ciro Bianchimani</h1><p class="dos__role">${esc(roles.join('  |  '))}</p><p class="dos__sum">${esc(ctx.t('hero.intro'))}</p><p class="dos__loc">${esc(ctx.t('hero.loc'))}</p><p class="dos__ask">${esc(T.select)}</p><ul class="dos__menu">${T.menu.map((n, i) => `<li data-i="${i}" data-n="${esc(n)}"></li>`).join('')}</ul></div>`, false);
+    app.innerHTML = frame(T.title, `<div class="dos__pres"><pre class="dos__logo">${LOGO}</pre><h1>CIRO BIANCHIMANI</h1><p class="dos__version">portfolio 2.0</p><p class="dos__role">${esc(roles.join('  |  '))}</p><p class="dos__sum">${esc(ctx.t('hero.intro'))}</p><p class="dos__loc">${esc(ctx.t('hero.loc'))}</p><p class="dos__ask">${esc(T.select)}</p><ul class="dos__menu">${T.menu.map((n, i) => `<li data-i="${i}" data-n="${esc(n)}"></li>`).join('')}</ul></div>`, false);
     setSel(idx);
   };
 
@@ -122,12 +143,14 @@ export function runDos(ctx) {
 
   const choose = (i) => {
     st.last = i;
-    if (i === 4) close(); else drawSection(['projects', 'saves', 'skills', 'contact'][i], i);
+    if (i === 4) close();
+    else { tone(880, 0.1); drawSection(['projects', 'saves', 'skills', 'contact'][i], i); }
   };
 
   const act = () => {
     const it = st.items[st.sel];
     if (!it?.href) return;
+    tone(1040, 0.08);
     if (it.dl) { const a = document.createElement('a'); a.href = it.href; a.download = ''; document.body.appendChild(a); a.click(); a.remove(); }
     else if (it.href.startsWith('mailto:')) location.href = it.href;
     else window.open(it.href, '_blank', 'noopener');
@@ -148,8 +171,8 @@ export function runDos(ctx) {
     else if (k === 'Home') { e.preventDefault(); setSel(0); }
     else if (k === 'End') { e.preventDefault(); setSel(1e3); }
     else if (k === 'Enter' || k === ' ' || k.toLowerCase() === 'x') { e.preventDefault(); if (menu) choose(st.sel); else act(); }
-    else if (k === 'Escape') { if (menu) close(); else drawMenu(st.last); }
-    else if (k === 'Backspace' && !menu) { e.preventDefault(); drawMenu(st.last); }
+    else if (k === 'Escape') { if (menu) close(); else { tone(520, 0.08); drawMenu(st.last); } }
+    else if (k === 'Backspace' && !menu) { e.preventDefault(); tone(520, 0.08); drawMenu(st.last); }
     else if (menu && /^[1-5]$/.test(k)) choose(+k - 1);
   }
   addEventListener('keydown', onKey, true);

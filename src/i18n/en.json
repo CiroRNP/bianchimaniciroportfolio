@@ -8,7 +8,7 @@
   "hero": {
     "loc": "Buenos Aires, Argentina. Available for freelance.",
     "roles": [
-      "Functional Analyst & Lead",
+      "Functional Analyst",
       "Senior Full Stack Developer"
     ],
     "intro": "I build mission-critical systems at national scale and SaaS products. I turn legal and bureaucratic requirements into software that people use every day.",
@@ -87,7 +87,7 @@
     {
       "kind": "work",
       "period": "Jan 2023 – Present",
-      "title": "Functional Analyst & Lead Full Stack Developer",
+      "title": "Functional Analyst & Senior Full Stack Developer",
       "org": "RENAPER",
       "points": [
         "SIGDI: national document management and technology inventory system. Tracks stock, movements, purchases and the full life cycle of assets (PHP, Laravel, PostgreSQL, JavaScript, Tailwind CSS, Docker).",
@@ -205,6 +205,6 @@
   },
   "meta": {
     "title": "Ciro Bianchimani | Functional Analyst & Senior Full Stack Developer",
-    "desc": "Functional Analyst & Lead, Senior Full Stack Developer. National-scale systems and SaaS. Buenos Aires, Argentina."
+    "desc": "Functional Analyst and Senior Full Stack Developer. National-scale systems and SaaS. Buenos Aires, Argentina."
   }
 }

@@ -267,6 +267,7 @@ function party() {
   clearTimeout(party._t); party._t = setTimeout(() => { root.classList.remove('party'); window.dispatchEvent(new Event('themechange')); }, 7000);
 }
 const KONAMI = ['ArrowUp', 'ArrowDown', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'a', 'b'];
+let kpos = 0;
 addEventListener('keydown', (e) => {
   const k = e.key.length === 1 ? e.key.toLowerCase() : e.key;
   kpos = k === KONAMI[kpos] ? kpos + 1 : k === KONAMI[0] ? 1 : 0;

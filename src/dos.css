@@ -25,7 +25,9 @@
 /* presentation + menu */
 .dos__pres { flex: 1; overflow: auto; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .5rem; padding: 1rem; text-align: center; }
 .dos__logo { font: 1.5rem/.95 ui-monospace, Menlo, Consolas, 'Courier New', monospace; color: #55ffff; text-shadow: 0 0 8px rgba(85, 255, 255, .6); }
-.dos h1 { font-size: 2.1rem; font-weight: 400; letter-spacing: .06em; color: #ffff55; }
+.dos h1 { font-size: clamp(1.3rem, 3.2vw, 2.1rem); font-weight: 400; letter-spacing: .06em; color: #ffff55; }
+.dos__version { color: #55ffff; animation: dos-version-blink 1s steps(1) infinite; }
+@keyframes dos-version-blink { 50% { visibility: hidden; } }
 .dos__role { color: #55ffff; }
 .dos__sum { max-width: 64ch; }
 .dos__loc { color: #aaa; }
@@ -59,4 +61,4 @@
   .dos__status > span:first-child { display: none; }
   .dos__logo { font-size: 1.1rem; }
 }
-@media (prefers-reduced-motion: reduce) { .dos__cur { animation: none; } .dos__app.reveal { animation: none; clip-path: inset(0); } }
+@media (prefers-reduced-motion: reduce) { .dos__cur, .dos__version { animation: none; } .dos__app.reveal { animation: none; clip-path: inset(0); } }

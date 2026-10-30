@@ -8,7 +8,7 @@
   "hero": {
     "loc": "Buenos Aires, Argentina. Disponible para freelance.",
     "roles": [
-      "Analista Funcional & Lead",
+      "Analista Funcional",
       "Senior Full Stack Developer"
     ],
     "intro": "Construyo sistemas de misión crítica a escala nacional y productos SaaS. Transformo requerimientos legales y burocráticos en software que se usa todos los días.",
@@ -87,7 +87,7 @@
     {
       "kind": "work",
       "period": "Ene 2023 – Presente",
-      "title": "Analista Funcional & Lead Full Stack Developer",
+      "title": "Analista Funcional & Senior Full Stack Developer",
       "org": "RENAPER",
       "points": [
         "SIGDI: sistema nacional de gestión documental e inventario tecnológico. Controla stock, movimientos, compras y todo el ciclo de vida de los activos (PHP, Laravel, PostgreSQL, JavaScript, Tailwind CSS, Docker).",
@@ -205,6 +205,6 @@
   },
   "meta": {
     "title": "Ciro Bianchimani | Analista Funcional & Senior Full Stack Developer",
-    "desc": "Analista Funcional & Lead, Senior Full Stack Developer. Sistemas a escala nacional y SaaS. Buenos Aires, Argentina."
+    "desc": "Analista Funcional y Senior Full Stack Developer. Sistemas a escala nacional y SaaS. Buenos Aires, Argentina."
   }
 }
