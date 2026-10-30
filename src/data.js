@@ -22,15 +22,20 @@ const A = '/projects/taskmaster1.png',
   F = '/projects/fuuusion.png',
   G = '/projects/radiold1.png',
   H = '/projects/landingresto.png',
-  I = '/projects/trucoimgrect.png';
+  I = '/projects/trucoimgrect.png'
 
 export const PROJECTS = [
   {
     id: 'cognit',
-    url: 'https://www.google.com',
+    url: 'https://cognit2-0.vercel.app',
     stack: 'React + Vite.js + Tailwind CSS + Firestore + Vercel',
-    img: A,
+    img: '/projects/cognit01.png',
     video: null,
+    creds:
+    {
+      user: 'testprofesional1@gmail.com',
+      pass: '123456'
+    },
     tech: ['React', 'Vite', 'Tailwind CSS', 'Firebase']
   },
   {

@@ -28,7 +28,7 @@
   "projects": {
     "cognit": {
       "title": "Cognit",
-      "desc": "SaaS for psychologists, in production with active monetization: appointments, patient follow-up, clinical history, reminders and payment control."
+      "desc": "SaaS para psicólogos, proyecto en produccion con: agenda, seguimeinto de pacientes, Historial y notas de sesiones, recordatorios y control de pagos."
     },
     "profes": {
       "title": "Herramienta para Personal Trainers",
