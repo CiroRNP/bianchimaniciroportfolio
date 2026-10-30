@@ -6,7 +6,7 @@ export function initPalette({ t, commands }) {
 
   const render = () => {
     const s = q.value.trim().toLowerCase();
-    items = commands().filter((c) => !s || `${c.label} ${c.group}`.toLowerCase().includes(s));
+    items = commands().filter((c) => (c.secret ? s.startsWith(c.secret) : !s || `${c.label} ${c.group}`.toLowerCase().includes(s)));
     sel = 0;
     list.innerHTML = items.length
       ? items.map((c, i) => `<li role="option" data-i="${i}" aria-selected="${i === 0}"><i class="${c.icon}"></i><span>${c.label}</span><small>${c.group}</small></li>`).join('')

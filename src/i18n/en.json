@@ -26,6 +26,10 @@
     "ghost": "Work"
   },
   "projects": {
+    "cognit": {
+      "title": "Cognit",
+      "desc": "SaaS for psychologists, in production with active monetization: appointments, patient follow-up, clinical history, reminders and payment control."
+    },
     "profes": {
       "title": "Personal Trainers Tool",
       "desc": "A web tool for personal trainers to run their work."
@@ -167,7 +171,10 @@
     "title": "Let's talk",
     "text": "Have a system to build or a process to untangle? Write to me.",
     "whatsapp": "Message on WhatsApp",
-    "wa_msg": "Hi Ciro, I saw your portfolio and I'd like to talk."
+    "wa_msg": "Hi Ciro, I saw your portfolio and I'd like to talk.",
+    "avail": "Available for freelance",
+    "clock": "Buenos Aires, local time",
+    "band": "Let's build something together"
   },
   "footer": "© 2026 Ciro Bianchimani",
   "cmd": {
@@ -181,5 +188,23 @@
     "theme": "Switch light / dark theme",
     "mail": "Send email",
     "open": "Command palette"
+  },
+  "footer_built": "Built with Vite, GSAP and Three.js",
+  "footer_top": "Back to top",
+  "dino": {
+    "label": "A tiny dinosaur. Click it.",
+    "say": [
+      "Nothing older than this. Except me.",
+      "Okay, one more jump and that's it.",
+      "Psst. Try Ctrl+K and type sudo."
+    ]
+  },
+  "egg": {
+    "sudo": "Permission granted. Opening the contact section.",
+    "konami": "KONAMI mode on."
+  },
+  "meta": {
+    "title": "Ciro Bianchimani | Functional Analyst & Senior Full Stack Developer",
+    "desc": "Functional Analyst & Lead, Senior Full Stack Developer. National-scale systems and SaaS. Buenos Aires, Argentina."
   }
 }

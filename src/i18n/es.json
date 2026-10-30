@@ -6,18 +6,18 @@
     "contact": "Contacto"
   },
   "hero": {
-    "loc": "Buenos Aires, Argentina.",
+    "loc": "Buenos Aires, Argentina. Disponible para freelance.",
     "roles": [
       "Analista Funcional & Lead",
-      "Senior Developer"
+      "Senior Full Stack Developer"
     ],
     "intro": "Construyo sistemas de misión crítica a escala nacional y productos SaaS. Transformo requerimientos legales y burocráticos en software que se usa todos los días.",
     "work": "Ver proyectos",
     "cv": "Descargar CV"
   },
   "work": {
-    "title": "Proyectos ",
-    "hint": "Vas a ver demo de algunos proyectos. Click en una tarjeta para abrirla.",
+    "title": "Proyectos seleccionados",
+    "hint": "Hacé scroll para recorrer los proyectos. Click en una tarjeta para abrir la demo.",
     "demo": "Abrir demo",
     "user": "Usuario",
     "pass": "Contraseña",
@@ -26,6 +26,10 @@
     "ghost": "Proyectos"
   },
   "projects": {
+    "cognit": {
+      "title": "Cognit",
+      "desc": "SaaS for psychologists, in production with active monetization: appointments, patient follow-up, clinical history, reminders and payment control."
+    },
     "profes": {
       "title": "Herramienta para Personal Trainers",
       "desc": "Una herramienta web para que los entrenadores personales gestionen su trabajo."
@@ -100,8 +104,7 @@
       "org": "Web, SaaS y proyectos personales",
       "points": [
         "Cognit: SaaS en producción con monetización activa. Turnos, seguimiento de pacientes, historial clínico, recordatorios y control de pagos para psicólogos, reduciendo deudas y cancelaciones (React/Vite, Tailwind CSS, Firestore, Vercel).",
-        "Radio LD: PWA de streaming de audio ultraliviana para celulares de gama baja. Emisoras argentinas sin publicidad y con interfaz simple para la tercera edad (JavaScript, Firebase Firestore, Netlify).",
-        "Gestion de Profes: herramienta web para entrenadores personales, con gestión de clientes, rutinas, pagos y recordatorios (React/Vite, Tailwind CSS, Supabase, Netlify)."
+        "Radio LD: PWA de streaming de audio ultraliviana para celulares de gama baja. Emisoras argentinas sin publicidad y con interfaz simple para la tercera edad (JavaScript, Firebase Firestore, Netlify)."
       ]
     },
     {
@@ -110,10 +113,9 @@
       "title": "Full Stack Developer con Java y Spring Boot",
       "org": "Alura Latam, Oracle Next Education",
       "points": [
-        "Business Agility G5 ONE - 40 h.",
-        "Emprendimiento ONE: Business Model Kanban - 20 h.",
-        "Emprendimiento ONE: SCRUM  - 20 h.",
-        "Desarrollo Personal - 20 h."
+        "Business Agility G5 ONE, 40 h.",
+        "Emprendimiento ONE: Business Model Canvas, 20 h.",
+        "Desarrollo Personal, 20 h."
       ]
     },
     {
@@ -162,14 +164,17 @@
     "tools": "Herramientas y métodos",
     "hint": "Elegí una tecnología y te muestro dónde la usé.",
     "with": "Hecho con {x}",
-    "none": "No hay una demo pública con {x}, pero se usa internamiente. Preguntame.",
+    "none": "Todavía no hay una demo pública con {x}, pero la uso. Preguntame.",
     "also": "También la usé en:"
   },
   "contact": {
     "title": "Hablemos",
     "text": "¿Tenés un sistema para construir o un proceso para ordenar? Escribime.",
     "whatsapp": "Escribir por WhatsApp",
-    "wa_msg": "Hola Ciro, vi tu portfolio y me gustaría hablar."
+    "wa_msg": "Hola Ciro, vi tu portfolio y me gustaría hablar.",
+    "avail": "Disponible para freelance",
+    "clock": "Buenos Aires, hora local",
+    "band": "Construyamos algo juntos"
   },
   "footer": "© 2026 Ciro Bianchimani",
   "cmd": {
@@ -183,5 +188,23 @@
     "theme": "Cambiar tema claro / oscuro",
     "mail": "Enviar email",
     "open": "Paleta de comandos"
+  },
+  "footer_built": "Hecho con progracion, computadoras y cafe",
+  "footer_top": "Volver arriba",
+  "dino": {
+    "label": "Un dinosaurio diminuto. Hacele click.",
+    "say": [
+      "No hay nada más viejo que esto. Salvo yo.",
+      "Bueno, un salto más y listo.",
+      "Psst. Probá Ctrl+K y escribí sudo."
+    ]
+  },
+  "egg": {
+    "sudo": "Permiso concedido. Abriendo la sección de contacto.",
+    "konami": "Modo KONAMI activado."
+  },
+  "meta": {
+    "title": "Ciro Bianchimani | Analista Funcional & Senior Full Stack Developer",
+    "desc": "Analista Funcional & Lead, Senior Full Stack Developer. Sistemas a escala nacional y SaaS. Buenos Aires, Argentina."
   }
 }

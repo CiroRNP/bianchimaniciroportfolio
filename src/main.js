@@ -61,11 +61,21 @@ function renderPick() {
     + (ex.length ? `<p class="pick__exp">${t('stack.also')} ${ex.map((i) => `<button data-tl="${i}">${t(`timeline.${i}.org`)}: ${t(`timeline.${i}.title`)}</button>`).join('')}</p>` : '');
 }
 
-$('#mail').textContent = SITE.email; $('#mail').href = `mailto:${SITE.email}`;
-$('#cv').href = SITE.cv;
-$('#avatar').addEventListener('error', () => { console.warn('Photo not found: ' + SITE.photo + '. Check SITE.photo in src/data.js'); $('#avatar').src = '/foto01.png'; }, { once: true });
+// SITE.cv can be a string or { es, en }
+const cvFor = (l) => (typeof SITE.cv === 'string' ? SITE.cv : SITE.cv[l] || SITE.cv.en);
+const clock = () => { $('#clock').textContent = `${t('contact.clock')} ${new Intl.DateTimeFormat(lang, { hour: '2-digit', minute: '2-digit', timeZone: 'America/Argentina/Buenos_Aires' }).format(new Date())}`; };
+setInterval(clock, 30000);
+$('#avatar').addEventListener('error', () => { console.warn('Photo not found: ' + SITE.photo + '. Check SITE.photo in src/data.js'); $('#avatar').src = '/photo-placeholder.svg'; }, { once: true });
 $('#avatar').src = SITE.photo;
-$('#social').innerHTML = SITE.social.map((s) => `<a href="${s.url}" target="_blank" rel="noopener" aria-label="${s.label}"><i class="${s.icon}"></i></a>`).join('');
+const host = (u) => { const x = new URL(u); return (x.hostname.replace('www.', '') + x.pathname).replace(/\/$/, ''); };
+const channels = [
+  { icon: 'ri-mail-line', label: 'Email', value: SITE.email, href: `mailto:${SITE.email}`, copy: SITE.email },
+  { id: 'wa', icon: 'ri-whatsapp-line', label: 'WhatsApp', key: 'contact.whatsapp', href: '#', ext: true },
+  ...SITE.social.map((x) => ({ icon: x.icon, label: x.label, value: host(x.url), href: x.url, ext: true })),
+  { id: 'cv2', icon: 'ri-file-download-line', key: 'hero.cv', value: 'PDF', href: '#', dl: true },
+];
+$('#links').innerHTML = channels.map((c) => `<li><a class="link"${c.id ? ` id="${c.id}"` : ''} href="${c.href}"${c.ext ? ' target="_blank" rel="noopener"' : ''}${c.dl ? ' download' : ''}><i class="${c.icon}"></i><span class="link__t"><b${c.key ? ` data-i18n="${c.key}"` : ''}>${c.key ? '' : c.label}</b><em>${c.value}</em></span><i class="ri-arrow-right-up-line link__go"></i></a>${c.copy ? `<button data-copy="${c.copy}" data-i18n="work.copy"></button>` : ''}</li>`).join('');
+$('#band').innerHTML = [0, 1].map(() => `<span class="band__half">${'<b data-i18n="contact.band"></b><i></i>'.repeat(4)}</span>`).join('');
 
 /* ---------- i18n ---------- */
 function applyLang() {
@@ -76,6 +86,9 @@ function applyLang() {
   $('#pal-open').setAttribute('aria-label', t('cmd.open'));
   $$('[data-lang]').forEach((b) => b.setAttribute('aria-pressed', b.dataset.lang === lang));
   $('#wa').href = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(t('contact.wa_msg'))}`;
+  $('#cv').href = cvFor(lang); $('#cv2').href = cvFor(lang);
+  document.title = t('meta.title'); $('meta[name="description"]').content = t('meta.desc');
+  $('#dino').setAttribute('aria-label', t('dino.label')); clock();
   localStorage.setItem('lang', lang);
   roleIdx = 0; showRole(); renderPick();
   ScrollTrigger.refresh();
@@ -146,9 +159,12 @@ if (!reduced) {
 const mm = gsap.matchMedia();
 mm.add('(min-width: 900px)', () => {
   const track = $('#track'), n = PROJECTS.length, dist = () => Math.max(0, track.scrollWidth - innerWidth);
-  const scroll = gsap.to(track, { x: () => -dist(), ease: 'none', scrollTrigger: {
-    trigger: '#work', pin: true, scrub: 0.6, end: () => '+=' + dist(), invalidateOnRefresh: true,
-    onUpdate: (s) => { $('#bar').style.transform = `scaleX(${s.progress})`; $('#count').textContent = `${Math.round(s.progress * (n - 1)) + 1} / ${n}`; } } });
+  const scroll = gsap.to(track, {
+    x: () => -dist(), ease: 'none', scrollTrigger: {
+      trigger: '#work', pin: true, scrub: 0.6, end: () => '+=' + dist(), invalidateOnRefresh: true,
+      onUpdate: (s) => { $('#bar').style.transform = `scaleX(${s.progress})`; $('#count').textContent = `${Math.round(s.progress * (n - 1)) + 1} / ${n}`; }
+    }
+  });
   $('#count').textContent = `1 / ${n}`;
   if (reduced) return;
   // depth: the giant word moves slower than the cards, each card tilts in 3D and its image slides inside the frame
@@ -196,19 +212,67 @@ document.addEventListener('click', (e) => {
 /* ---------- Cursor + command palette ---------- */
 if (!reduced) initCursor(t);
 const go = (sel) => () => { const el = $(sel); lenis ? lenis.scrollTo(el) : el.scrollIntoView({ behavior: 'smooth' }); };
-const palette = initPalette({ t, commands: () => [
-  ...[['work', '#work', 'ri-folder-open-line'], ['path', '#path', 'ri-route-line'], ['stack', '#stack', 'ri-stack-line'], ['contact', '#contact', 'ri-mail-send-line']]
-    .map(([k, sel, icon]) => ({ group: t('cmd.nav'), icon, label: t('nav.' + k), run: go(sel) })),
-  { group: t('cmd.actions'), icon: 'ri-translate-2', label: t('cmd.to_lang'), run: () => { lang = lang === 'en' ? 'es' : 'en'; applyLang(); } },
-  { group: t('cmd.actions'), icon: 'ri-contrast-2-line', label: t('cmd.theme'), run: () => setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark') },
-  { group: t('cmd.actions'), icon: 'ri-download-line', label: t('hero.cv'), run: () => $('#cv').click() },
-  { group: t('cmd.actions'), icon: 'ri-mail-line', label: t('cmd.mail'), run: () => (location.href = `mailto:${SITE.email}`) },
-  { group: t('cmd.actions'), icon: 'ri-whatsapp-line', label: t('contact.whatsapp'), run: () => window.open($('#wa').href, '_blank', 'noopener') },
-  ...PROJECTS.map((p) => ({ group: t('cmd.projects'), icon: 'ri-external-link-line', label: t(`projects.${p.id}.title`), run: () => window.open(p.url, '_blank', 'noopener') })),
-] });
+const palette = initPalette({
+  t, commands: () => [
+    ...[['work', '#work', 'ri-folder-open-line'], ['path', '#path', 'ri-route-line'], ['stack', '#stack', 'ri-stack-line'], ['contact', '#contact', 'ri-mail-send-line']]
+      .map(([k, sel, icon]) => ({ group: t('cmd.nav'), icon, label: t('nav.' + k), run: go(sel) })),
+    { group: t('cmd.actions'), icon: 'ri-translate-2', label: t('cmd.to_lang'), run: () => { lang = lang === 'en' ? 'es' : 'en'; applyLang(); } },
+    { group: t('cmd.actions'), icon: 'ri-contrast-2-line', label: t('cmd.theme'), run: () => setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark') },
+    { group: t('cmd.actions'), icon: 'ri-download-line', label: t('hero.cv'), run: () => $('#cv').click() },
+    { group: t('cmd.actions'), icon: 'ri-mail-line', label: t('cmd.mail'), run: () => (location.href = `mailto:${SITE.email}`) },
+    { secret: 'sudo', group: 'root', icon: 'ri-terminal-line', label: 'sudo hire ciro', run: () => { toast(t('egg.sudo')); party(); go('#contact')(); } },
+    { secret: 'sudo', group: 'root', icon: 'ri-terminal-line', label: 'sudo rm -rf /', run: () => import('./game.js').then((g) => g.runTerminal({ lang: () => lang })) },
+    { secret: 'konami', group: 'root', icon: 'ri-gamepad-line', label: 'konami mode', run: startGame },
+    { group: t('cmd.actions'), icon: 'ri-whatsapp-line', label: t('contact.whatsapp'), run: () => window.open($('#wa').href, '_blank', 'noopener') },
+    ...PROJECTS.map((p) => ({ group: t('cmd.projects'), icon: 'ri-external-link-line', label: t(`projects.${p.id}.title`), run: () => window.open(p.url, '_blank', 'noopener') })),
+  ]
+});
 $('#pal-open').addEventListener('click', palette.open);
 $('#pal-open kbd').textContent = /Mac|iPhone|iPad/.test(navigator.platform) ? '⌘K' : 'Ctrl K';
 window.addEventListener('palopen', () => lenis?.stop());
 window.addEventListener('palclose', () => lenis?.start());
+
+/* ---------- Contact extras, dino and easter eggs ---------- */
+$('#contact').addEventListener('pointermove', (e) => {
+  const r = e.currentTarget.getBoundingClientRect();
+  e.currentTarget.style.setProperty('--mx', `${e.clientX - r.left}px`); e.currentTarget.style.setProperty('--my', `${e.clientY - r.top}px`);
+});
+$('#top').addEventListener('click', () => (lenis ? lenis.scrollTo(0) : scrollTo({ top: 0, behavior: 'smooth' })));
+
+// Pixel-art dino: each '#' is a square. Edit the rows to change the drawing.
+const DINO = ["..........########", "..........##.#####", "..........########", "..........########", "..........#####...", ".........####.....", "#........#####.#..", "##......########..", "###....###########", ".#############....", "..###########.....", "...#########......", "....###..###......", "....##...##......."];
+$('#dino').innerHTML = `<svg viewBox="0 0 18 14" width="54" height="42" shape-rendering="crispEdges" fill="currentColor" aria-hidden="true">${DINO.flatMap((r, y) => [...r].map((c, x) => (c === '#' ? `<rect x="${x}" y="${y}" width="1" height="1"/>` : ''))).join('')}</svg>`;
+let dn = 0;
+$('#dino').addEventListener('click', () => {
+  const d = $('#dino'), b = $('#bubble'), say = t('dino.say');
+  d.classList.remove('jump'); void d.offsetWidth; d.classList.add('jump');
+  b.textContent = say[dn++ % say.length]; b.classList.add('on');
+  clearTimeout(b._t); b._t = setTimeout(() => b.classList.remove('on'), 2800);
+});
+ScrollTrigger.create({ trigger: '.tl__end', start: 'top 95%', onEnter: () => $('.tl__end').classList.add('is-on') });
+
+function startGame() {
+  toast(t('egg.konami'));
+  import('./game.js').then((g) => g.enterGame({ t, lang: () => lang, SITE, PROJECTS, STACK, EXP, cvFor, pause: () => lenis?.stop(), resume: () => lenis?.start() }));
+}
+let taps = 0;
+$('.top__brand').addEventListener('click', () => { taps++; clearTimeout(startGame._t); startGame._t = setTimeout(() => (taps = 0), 1500); if (taps >= 5) { taps = 0; startGame(); } });
+
+function toast(msg) {
+  const el = $('#toast'); el.textContent = msg; el.classList.add('on'); clearTimeout(el._t); el._t = setTimeout(() => el.classList.remove('on'), 3200);
+}
+
+function party() {
+  root.classList.add('party'); window.dispatchEvent(new Event('themechange'));
+  clearTimeout(party._t); party._t = setTimeout(() => { root.classList.remove('party'); window.dispatchEvent(new Event('themechange')); }, 7000);
+}
+const KONAMI = ['ArrowUp', 'ArrowDown', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'a', 'b'];
+addEventListener('keydown', (e) => {
+  const k = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+  kpos = k === KONAMI[kpos] ? kpos + 1 : k === KONAMI[0] ? 1 : 0;
+  if (kpos === KONAMI.length) { kpos = 0; startGame(); }
+});
+console.log('%cHey, dev.', 'font:700 18px system-ui;color:#6b95ff');
+console.log(`Curious how this is built? Vite, GSAP and Three.js. Want to talk? ${SITE.email}`);
 
 applyLang();
