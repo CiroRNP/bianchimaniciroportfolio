@@ -3,12 +3,12 @@ export const SITE = {
   photo: '/foto01.png',
   pixelPhoto: '/fotopixel.jpg',
   email: 'bianchimaniciroe@gmail.com',
-  whatsapp: '5491165026238',
+  whatsapp: '+5491165026238',
   cv: { es: '/cv/CVCiroBianchimaniESP.pdf', en: '/cv/CVCiroBianchimaniENG2026.pdf' },
   social: [
     { icon: 'ri-github-line', url: 'https://github.com/Cbianchc', label: 'GitHub' },
     { icon: 'ri-linkedin-box-line', url: 'https://www.linkedin.com/in/cirobianchimani/', label: 'LinkedIn' },
-    { icon: 'ri-instagram-line', url: 'https://www.instagram.com/profecirob/', label: 'Instagram' },
+    // { icon: 'ri-instagram-line', url: 'https://www.instagram.com/profecirob/', label: 'Instagram' },
   ],
 };
 

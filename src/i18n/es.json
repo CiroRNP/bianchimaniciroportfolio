@@ -9,7 +9,7 @@
     "loc": "Buenos Aires, Argentina. Disponible para freelance.",
     "roles": [
       "Analista Funcional",
-      "Senior Full Stack Developer"
+      "Senior Developer"
     ],
     "intro": "Construyo sistemas de misión crítica a escala nacional y productos SaaS. Transformo requerimientos legales y burocráticos en software que se usa todos los días.",
     "work": "Ver proyectos",
@@ -17,7 +17,7 @@
   },
   "work": {
     "title": "Proyectos seleccionados",
-    "hint": "Hacé scroll para recorrer los proyectos. Click en una tarjeta para abrir la demo.",
+    "hint": "Scrolleá para recorrer los proyectos. Clickeá una tarjeta para abrir la demo.",
     "demo": "Abrir demo",
     "user": "Usuario",
     "pass": "Contraseña",
