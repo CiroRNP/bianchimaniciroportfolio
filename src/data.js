@@ -4,7 +4,7 @@ export const SITE = {
   pixelPhoto: '/fotopixel.jpg',
   email: 'bianchimaniciroe@gmail.com',
   whatsapp: '+5491165026238',
-  cv: { es: '/cv/CVCiroBianchimaniESP.pdf', en: '/cv/CVCiroBianchimaniENG2026.pdf' },
+  cv: { es: '/cv/bianchimaniciro_cv_esp.pdf', en: '/cv/bianchimaniciro_cv_eng.pdf' },
   social: [
     { icon: 'ri-github-line', url: 'https://github.com/Cbianchc', label: 'GitHub' },
     { icon: 'ri-linkedin-box-line', url: 'https://www.linkedin.com/in/cirobianchimani/', label: 'LinkedIn' },
