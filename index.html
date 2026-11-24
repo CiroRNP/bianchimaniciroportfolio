@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en" data-theme="dark">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,9 +17,12 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
+
 <body>
   <header class="top">
     <a class="top__brand" href="#hero" aria-label="Ciro Bianchimani">CB</a>
@@ -32,7 +36,8 @@
       <div class="dock__lang" role="group" aria-label="Language">
         <button data-lang="en">EN</button><button data-lang="es">ES</button>
       </div>
-      <button class="dock__pal" id="pal-open" aria-label="Command palette"><i class="ri-search-line"></i><kbd></kbd></button>
+      <button class="dock__pal" id="pal-open" aria-label="Command palette"><i
+          class="ri-search-line"></i><kbd></kbd></button>
       <button class="dock__theme" id="theme" aria-label="Theme"><i class="ri-moon-line"></i></button>
     </div>
   </header>
@@ -41,7 +46,8 @@
     <section class="hero" id="hero">
       <canvas id="hero-canvas" aria-hidden="true"></canvas>
       <div class="wrap hero__grid">
-        <figure class="hero__photo"><span class="hero__ring"></span><img id="avatar" src="" alt="Ciro Bianchimani" width="400" height="400"></figure>
+        <figure class="hero__photo"><span class="hero__ring"></span><img id="avatar" src="" alt="Ciro Bianchimani"
+            width="400" height="400"></figure>
         <div>
           <p class="hero__loc" data-i18n="hero.loc"></p>
           <h1 class="hero__name"><span>Ciro</span><span>Bianchimani</span></h1>
@@ -62,7 +68,9 @@
         <p data-i18n="work.hint"></p>
       </div>
       <div class="work__track" id="track"></div>
-      <div class="work__foot"><span id="count"></span><div class="work__bar"><i id="bar"></i></div></div>
+      <div class="work__foot"><span id="count"></span>
+        <div class="work__bar"><i id="bar"></i></div>
+      </div>
     </section>
 
     <section class="path wrap" id="path">
@@ -76,7 +84,8 @@
       <div class="tl">
         <div class="tl__line"><i class="tl__fill"></i></div>
         <ol class="tl__list" id="tl"></ol>
-        <div class="tl__end"><button class="dino" id="dino"></button><span class="dino__bubble" id="bubble" role="status"></span></div>
+        <div class="tl__end"><button class="dino" id="dino"></button><span class="dino__bubble" id="bubble"
+            role="status"></span></div>
       </div>
     </section>
 
@@ -88,7 +97,9 @@
     </section>
 
     <section class="contact" id="contact">
-      <div class="band" aria-hidden="true"><div class="band__in" id="band"></div></div>
+      <div class="band" aria-hidden="true">
+        <div class="band__in" id="band"></div>
+      </div>
       <div class="wrap contact__grid">
         <div>
           <p class="pill"><i></i><span data-i18n="contact.avail"></span></p>
@@ -101,10 +112,12 @@
     </section>
   </main>
 
-  <footer class="foot wrap"><span data-i18n="footer"></span><span data-i18n="footer_built"></span><button id="top"><i class="ri-arrow-up-line"></i><span data-i18n="footer_top"></span></button></footer>
+  <footer class="foot wrap"><span data-i18n="footer"></span><span data-i18n="footer_built"></span><button id="top"><i
+        class="ri-arrow-up-line"></i><span data-i18n="footer_top"></span></button></footer>
   <div class="pal" id="pal" hidden role="dialog" aria-modal="true" aria-label="Command palette">
     <div class="pal__box">
-      <input id="pal-q" type="text" autocomplete="off" spellcheck="false" data-i18n-ph="cmd.placeholder" aria-label="Command">
+      <input id="pal-q" type="text" autocomplete="off" spellcheck="false" data-i18n-ph="cmd.placeholder"
+        aria-label="Command">
       <ul id="pal-list" role="listbox"></ul>
       <p class="pal__hint" data-i18n="cmd.hint"></p>
     </div>
@@ -113,4 +126,5 @@
   <div class="cursor" id="cursor" aria-hidden="true"><span></span></div>
   <script type="module" src="/src/main.js"></script>
 </body>
+
 </html>
